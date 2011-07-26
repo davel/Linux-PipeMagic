@@ -1,0 +1,6 @@
+Revision history for Perl extension Linux::PipeMagic.
+
+0.01  Tue Jul 26 20:41:33 2011
+	- original version; created by h2xs 1.23 with options
+		-n Linux::PipeMagic
+
