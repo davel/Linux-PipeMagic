@@ -24,7 +24,8 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
-	
+    systee
+    syssplice
 );
 
 our $VERSION = '0.01';
