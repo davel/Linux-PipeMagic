@@ -30,18 +30,16 @@ OUTPUT:
     RETVAL
 
 ssize_t
-syssplice(io_in, off_in, io_out, off_out, len, flags)
+syssplice(io_in, io_out, len, flags)
     InputStream io_in
-    long off_in
     OutputStream io_out
-    long off_out
     ssize_t len
     int flags
 PREINIT:
     int fd_in = PerlIO_fileno(io_in);
     int fd_out = PerlIO_fileno(io_out);
 CODE:
-    RETVAL = splice(fd_in, &off_in, fd_out, &off_out, len, flags);
+    RETVAL = splice(fd_in, NULL, fd_out, NULL, len, flags);
 OUTPUT:
     RETVAL
 
