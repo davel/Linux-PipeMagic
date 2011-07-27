@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Linux::PipeMagic;
+use Linux::PipeMagic qw/ systee syssplice /;
 use File::Temp qw/ tempdir /;
 use File::Slurp qw/ read_file /;
 use Test::More;
@@ -25,10 +25,10 @@ pipe(my $pipe2_read, my $pipe2_write) or die $!;
 
 my $read_from_pipe;
 
-while ((my $read = Linux::PipeMagic::syssplice($fh_in, $pipe1_write, length($TEST_SAMPLE), 0)) > 0) {
+while ((my $read = syssplice($fh_in, $pipe1_write, length($TEST_SAMPLE), 0)) > 0) {
     is($read, length($TEST_SAMPLE));
-    is(Linux::PipeMagic::systee($pipe1_read, $pipe2_write, $read, 0), $read) or die $!;
-    is(Linux::PipeMagic::syssplice($pipe1_read, $fh_out, $read, 0), $read) or die $!;
+    is(systee($pipe1_read, $pipe2_write, $read, 0), $read) or die $!;
+    is(syssplice($pipe1_read, $fh_out, $read, 0), $read) or die $!;
     sysread($pipe2_read, $read_from_pipe, $read);
 }
 close $fh_in;
