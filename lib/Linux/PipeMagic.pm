@@ -62,45 +62,42 @@ XSLoader::load('Linux::PipeMagic', $VERSION);
 
 1;
 __END__
-# Below is stub documentation for your module. You'd better edit it!
 
 =head1 NAME
 
-Linux::PipeMagic - Perl extension for blah blah blah
+Linux::PipeMagic - Perl extension to use the zero copy IO syscalls
 
 =head1 SYNOPSIS
 
-  use Linux::PipeMagic;
-  blah blah blah
+  use Linux::PipeMagic qw/ systee syssplice /;
+  systee($fh_in, $fh_out, $num_bytes, 0);
+  syssplice($fh_in, $fh_out, $num_bytes, 0);
+
 
 =head1 DESCRIPTION
 
-Stub documentation for Linux::PipeMagic, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
+
 
 Blah blah blah.
 
-=head2 EXPORT
-
-None by default.
-
-
-
 =head1 SEE ALSO
 
-Mention other useful documentation such as the documentation of
-related modules or operating system documentation (such as man pages
-in UNIX), or any relevant external documentation such as RFCs or
-standards.
+=over
 
-If you have a mailing list set up for your module, mention it here.
+=item *
+L<http://github.com/davel/Linux-PipeMagic/>
 
-If you have a web site set up for your module, mention it here.
+=item *
+L<splice(2)>
+
+=item *
+L<tee(2)>
+
+=back
 
 =head1 AUTHOR
 
-Dave Lambley, E<lt>davel@E<gt>
+Dave Lambley, E<lt>cpan@davel.org.ukE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
