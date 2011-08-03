@@ -73,12 +73,45 @@ Linux::PipeMagic - Perl extension to use the zero copy IO syscalls
   systee($fh_in, $fh_out, $num_bytes, 0);
   syssplice($fh_in, $fh_out, $num_bytes, 0);
 
-
 =head1 DESCRIPTION
 
+Linux::PipeMagic is a Perl XS wrapper around the L<splice(2)> and L<tee(2)>
+syscalls.  You can use them to efficiently data from one file descriptor to
+another inside the kernel (splice), or to efficiently copy data from one pipe
+to another (tee).
 
+=head1 FUNCTIONS
 
-Blah blah blah.
+=over
+
+=item sysplice($fh_in, $fh_out, $num_bytes, $flags)
+
+Moves C<$num_bytes> from C<$fh_in> to C<$fh_out>.
+
+=item systee($fh_in, $fh_out, $num_bytes, $flags)
+
+Copies C<$num_bytes> from C<$fh_in> to C<$fh_out>.  The filehandles must both
+be of pipes.
+
+=back
+
+=head1 CONSTANTS
+
+=over
+
+=item *
+SPLICE_F_MOVE
+
+=item *
+SPLICE_F_NONBLOCK
+
+=item *
+SPLICE_F_MORE
+
+=item *
+SPLICE_F_GIFT
+
+=back
 
 =head1 SEE ALSO
 
@@ -86,6 +119,13 @@ Blah blah blah.
 
 =item *
 L<http://github.com/davel/Linux-PipeMagic/>
+
+=back
+
+See the Linux manpages for more details on how splice and tee can be used,
+including the flags.
+
+=over
 
 =item *
 L<splice(2)>
@@ -106,6 +146,5 @@ Copyright (C) 2011 by Dave Lambley
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.1 or,
 at your option, any later version of Perl 5 you may have available.
-
 
 =cut
