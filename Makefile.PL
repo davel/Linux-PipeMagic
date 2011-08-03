@@ -14,6 +14,11 @@ WriteMakefile(
     INC               => '-I.', # e.g., '-I. -I/usr/include/other'
 	# Un-comment this if you add C files to link with later:
     # OBJECT            => '$(O_FILES)', # link all the C files too
+    META_MERGE => {
+        resources => {
+            repository => "http://github.com/davel/Linux-PipeMagic",
+        },
+    },
 );
 if  (eval {require ExtUtils::Constant; 1}) {
   # If you edit these definitions to change the constants used by this module,
