@@ -19,6 +19,7 @@ WriteMakefile(
             repository => "http://github.com/davel/Linux-PipeMagic",
         },
     },
+    LICENSE           => "perl",
 );
 if  (eval {require ExtUtils::Constant; 1}) {
   # If you edit these definitions to change the constants used by this module,
