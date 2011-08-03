@@ -1,10 +1,13 @@
 Changes
+fallback/const-c.inc
+fallback/const-xs.inc
+lib/Linux/PipeMagic.pm
 Makefile.PL
 MANIFEST
 PipeMagic.xs
 ppport.h
 README
+t/compile.t
+t/constants.t
 t/Linux-PipeMagic.t
-fallback/const-c.inc
-fallback/const-xs.inc
-lib/Linux/PipeMagic.pm
+t/tee.t
