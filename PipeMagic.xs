@@ -4,6 +4,8 @@
 
 #include "ppport.h"
 
+#include <fcntl.h>
+
 #include "const-c.inc"
 
 typedef PerlIO *        OutputStream;

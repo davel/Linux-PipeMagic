@@ -20,7 +20,7 @@ if  (eval {require ExtUtils::Constant; 1}) {
   # you will need to use the generated const-c.inc and const-xs.inc
   # files to replace their "fallback" counterparts before distributing your
   # changes.
-  my @names = (qw());
+  my @names = (qw( SPLICE_F_MOVE SPLICE_F_NONBLOCK SPLICE_F_MORE SPLICE_F_GIFT ));
   ExtUtils::Constant::WriteConstants(
                                      NAME         => 'Linux::PipeMagic',
                                      NAMES        => \@names,
