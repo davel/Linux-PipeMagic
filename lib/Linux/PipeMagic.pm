@@ -90,12 +90,22 @@ to another (tee).
 
 =item sysplice($fh_in, $fh_out, $num_bytes, $flags)
 
-Moves C<$num_bytes> from C<$fh_in> to C<$fh_out>.
+Moves C<$num_bytes> from C<$fh_in> to C<$fh_out>.  This is roughly equivilent to,
+
+    sysread($fh_in, my $buf, $num_bytes);
+    syswrite($fh_out, $buf);
+
+although the transfer takes place entirely in kernel-space.
+
+Returns the number of bytes transferred.
 
 =item systee($fh_in, $fh_out, $num_bytes, $flags)
 
 Copies C<$num_bytes> from C<$fh_in> to C<$fh_out>.  The filehandles must both
-be of pipes.
+be of pipes.  This works similarly to C<syssplice>, but does not advance the
+read pointer in C<$fh_in>.
+
+Returns the number of bytes transferred.
 
 =back
 
