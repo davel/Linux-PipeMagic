@@ -26,6 +26,10 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
     systee
     syssplice
+    SPLICE_F_MOVE
+    SPLICE_F_NONBLOCK
+    SPLICE_F_MORE
+    SPLICE_F_GIFT
 );
 
 our $VERSION = '0.01';
