@@ -6,6 +6,12 @@ WriteMakefile(
     NAME              => 'Linux::PipeMagic',
     VERSION_FROM      => 'lib/Linux/PipeMagic.pm', # finds $VERSION
     PREREQ_PM         => {}, # e.g., Module::Name => 1.1
+    BUILD_REQUIRES    => {
+        'Test::More'    => 0,
+        'File::Slurp'   => 0,
+        'File::Temp'    => 0,
+
+    },
     ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
       (ABSTRACT_FROM  => 'lib/Linux/PipeMagic.pm', # retrieve abstract from module
        AUTHOR         => 'Dave Lambley <cpan@davel.org.uk') : ()),
