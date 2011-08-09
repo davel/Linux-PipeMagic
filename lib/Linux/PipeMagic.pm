@@ -24,7 +24,6 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
     SPLICE_F_NONBLOCK
     SPLICE_F_MORE
     SPLICE_F_GIFT
-
 ) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
