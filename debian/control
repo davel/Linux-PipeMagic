@@ -15,4 +15,3 @@ Description: Perl extension to use the zero copy IO syscalls
  another inside the kernel (splice), or to efficiently copy data from one pipe
  to another (tee).
  .
- This description was automagically extracted from the module by dh-make-perl.
