@@ -20,6 +20,7 @@ our @ISA = qw(Exporter);
 our %EXPORT_TAGS = ( 'all' => [ qw(
 	systee
     syssplice
+    syssendfile
     SPLICE_F_MOVE
     SPLICE_F_NONBLOCK
     SPLICE_F_MORE
