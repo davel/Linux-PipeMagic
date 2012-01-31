@@ -72,13 +72,14 @@ Linux::PipeMagic - Perl extension to use the zero copy IO syscalls
 
 =head1 SYNOPSIS
 
-  use Linux::PipeMagic qw/ systee syssplice /;
+  use Linux::PipeMagic qw/ systee syssplice syssendfile /;
   systee($fh_in, $fh_out, $num_bytes, 0);
   syssplice($fh_in, $fh_out, $num_bytes, 0);
+  syssendfile($fh_out, $fh_in, $num_bytes);
 
 =head1 DESCRIPTION
 
-Linux::PipeMagic is a Perl XS wrapper around the L<splice(2)> and L<tee(2)>
+Linux::PipeMagic is a Perl XS wrapper around the L<splice(2)>, L<tee(2)> and L<sendfile(2)>
 syscalls.  You can use them to efficiently data from one file descriptor to
 another inside the kernel (splice), or to efficiently copy data from one pipe
 to another (tee).
@@ -105,6 +106,13 @@ be of pipes.  This works similarly to C<syssplice>, but does not advance the
 read pointer in C<$fh_in>.
 
 Returns the number of bytes transferred.
+
+=item syssendfile($fh_out, $fh_in, $num_bytes)
+
+Copies C<$num_bytes> from C<$fh_in> to C<$fh_out>.  With current versions of
+Linux, C<$fh_in> must be a file opened for reading, and C<$fh_out> must be a
+writable socket.  Note the different order of parameters compared to the other
+functions.
 
 =back
 
@@ -146,6 +154,9 @@ L<splice(2)>
 =item *
 L<tee(2)>
 
+=item *
+L<sendfile(2)>
+
 =back
 
 =head1 AUTHOR
@@ -154,7 +165,7 @@ Dave Lambley, E<lt>cpan@davel.org.ukE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011 by Dave Lambley
+Copyright (C) 2011, 2012 by Dave Lambley
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.1 or,
