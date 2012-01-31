@@ -45,3 +45,16 @@ CODE:
 OUTPUT:
     RETVAL
 
+ssize_t
+syssendfile(io_out, io_in, len)
+    InputStream io_in
+    OutputStream io_out
+    ssize_t len
+PREINIT:
+    int fd_in = PerlIO_fileno(io_in);
+    int fd_out = PerlIO_fileno(io_out);
+CODE:
+    RETVAL = sendfile(fd_out, fd_in, len);
+OUTPUT:
+    RETVAL
+
