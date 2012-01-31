@@ -54,7 +54,7 @@ PREINIT:
     int fd_in = PerlIO_fileno(io_in);
     int fd_out = PerlIO_fileno(io_out);
 CODE:
-    RETVAL = sendfile(fd_out, fd_in, len);
+    RETVAL = sendfile(fd_out, fd_in, NULL, len);
 OUTPUT:
     RETVAL
 
