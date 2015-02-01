@@ -80,7 +80,7 @@ Linux::PipeMagic - Perl extension to use the zero copy IO syscalls
 =head1 DESCRIPTION
 
 Linux::PipeMagic is a Perl XS wrapper around the L<splice(2)>, L<tee(2)> and L<sendfile(2)>
-syscalls.  You can use them to efficiently data from one file descriptor to
+syscalls.  You can use them to efficiently copy data from one file descriptor to
 another inside the kernel (splice), or to efficiently copy data from one pipe
 to another (tee).
 
@@ -90,19 +90,19 @@ to another (tee).
 
 =item sysplice($fh_in, $fh_out, $num_bytes, $flags)
 
-Moves C<$num_bytes> from C<$fh_in> to C<$fh_out>.  This is roughly equivilent to,
+Copies C<$num_bytes> from C<$fh_in> to C<$fh_out>.  This is roughly equivalent to,
 
     sysread($fh_in, my $buf, $num_bytes);
     syswrite($fh_out, $buf);
 
-although the transfer takes place entirely in kernel-space.
+although the transfer takes place entirely in kernel space.
 
 Returns the number of bytes transferred.
 
 =item systee($fh_in, $fh_out, $num_bytes, $flags)
 
 Copies C<$num_bytes> from C<$fh_in> to C<$fh_out>.  The filehandles must both
-be of pipes.  This works similarly to C<syssplice>, but does not advance the
+be of type pipe.  This works similarly like C<syssplice> but does not advance the
 read pointer in C<$fh_in>.
 
 Returns the number of bytes transferred.
