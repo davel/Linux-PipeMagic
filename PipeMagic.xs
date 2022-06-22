@@ -7,6 +7,10 @@
 #include <fcntl.h>
 #include <errno.h>
 
+#ifdef __linux__
+#include <sys/sendfile.h>
+#endif
+
 #include "const-c.inc"
 
 typedef PerlIO *        OutputStream;
