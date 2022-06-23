@@ -26,6 +26,7 @@ WriteMakefile(
         },
     },
     LICENSE           => "perl",
+    MIN_PERL_VERSION  => v5.10.1,
 );
 if  (eval {require ExtUtils::Constant; 1}) {
   # If you edit these definitions to change the constants used by this module,
