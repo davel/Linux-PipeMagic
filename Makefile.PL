@@ -24,6 +24,9 @@ WriteMakefile(
         resources => {
             repository => "http://github.com/davel/Linux-PipeMagic",
         },
+        x_contributors => [
+            "Simon Wilper <sxw\@chronowerks.de>",
+        ],
     },
     LICENSE           => "perl",
     MIN_PERL_VERSION  => v5.10.1,
