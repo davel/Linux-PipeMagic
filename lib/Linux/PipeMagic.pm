@@ -134,6 +134,13 @@ SPLICE_F_GIFT
 
 =back
 
+=head1 CAVEATS
+
+Only Linux is supported, on other OSs the calls will fail with C<ENOSYS> and
+the constants will not be available. L<tee(2)> and L<splice(2)> syscalls only
+exist on Linux. L<sendfile(2)> is provided by the BSDs, however it takes different
+parameters to the Linux call.
+
 =head1 SEE ALSO
 
 =over
@@ -165,7 +172,7 @@ Dave Lambley, E<lt>dlambley@cpan.org<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2011, 2012 by Dave Lambley
+Copyright (C) 2011, 2012, 2022 by Dave Lambley
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.1 or,
