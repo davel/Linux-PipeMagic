@@ -161,7 +161,7 @@ L<sendfile(2)>
 
 =head1 AUTHOR
 
-Dave Lambley, E<lt>cpan@davel.org.ukE<gt>
+Dave Lambley, E<lt>dlambley@cpan.org<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
